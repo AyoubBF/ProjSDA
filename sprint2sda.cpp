@@ -38,7 +38,16 @@ void lire_et_enregistrer(Mot& id, Liste& liste) {
 
 
 void tri_alphabetique(Liste& liste) {
-
+	for (int i = 0; i < liste.nb_mots; i++) {
+		for (int j = i+1; j < liste.nb_mots; j++) {
+			if (strcmp(liste.tab_mots[i], liste.tab_mots[j]) > 0) {
+				Mot tmp;
+				strcpy(tmp, liste.tab_mots[i]);
+				strcpy(liste.tab_mots[i], liste.tab_mots[j]);
+				strcpy(liste.tab_mots[j], tmp);
+			}
+		}
+	}
 }
 
 
@@ -50,8 +59,10 @@ int main() {
 	while (strcmp(buffer, "*") != 0) {
 		lire_et_enregistrer(buffer, liste);
 	}
+	tri_alphabetique(liste);
 	for (int i = 0; i < liste.nb_mots; i++) {
 		cout << liste.tab_mots[i] << endl;
 	}
+	cout << "*" << endl;
 	return 0;
 }
