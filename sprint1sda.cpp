@@ -9,7 +9,7 @@ using namespace std;
 typedef char Mot[MAX_LETTRES + 1];
 
 struct Liste {
-	char* tab_mots[MAX_MOTS + 1];
+	Mot tab_mots[MAX_MOTS + 1];
 	unsigned int nb_mots;
 	unsigned int nb_points;
 };
